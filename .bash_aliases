@@ -4,7 +4,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias gpwd="pwd | xclip -i"
 alias cdpwd="cd \$(xclip -o)"
-alias m='gnome-mpv'
 alias ml='livestreamer --config ~/.livestreamerrc -v'
-alias jblive='gnome-mpv rtmp://jblive.videocdn.scaleengine.net/jb-live/play/jblive.stream'
+alias jblive='mpv rtmp://jblive.videocdn.scaleengine.net/jb-live/play/jblive.stream'
 alias twit='livestreamer --config ~/.livestreamerrc -v http://www.ustream.tv/leolaporte'
+alias glog='git log --pretty=format:"%C(auto) %h,%Cgreen \"%s\"%Creset, %aN,%Cblue %cD"'
