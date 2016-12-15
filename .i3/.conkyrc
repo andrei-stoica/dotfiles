@@ -20,7 +20,7 @@ TEXT
   {"full_text": " 🌡${exec sensors | awk '/Physical id 0/ {print substr($0,index($0,":")+2,index($0,"°")-index($0,":"))}' } ","color": "\#FB4646", "name":"temp"},
 #  {"full_text": " ☼ ${exec /home/andrei/.i3/blevel.sh} ","color": "\#DFD60C", "name":"bright"},
 # {"full_text": " ${fs_free /} (${fs_free_perc /}%)",  "color":"\#E98F15"},
-#  {"full_text": " Mem: $memfree", "color":"\#F3D194"},
+  {"full_text": " ${exec free -m | grep Mem | awk '{print $1, $3}'}", "color":"\#F3D194"},
   {"full_text": " ${exec /home/andrei/.i3/pacvol.sh display} ","color":"\#6AFFD8", "name":"volume"},
 # {"full_text": " $downspeed $upspeed ", "color":"\#FFFE6A"},
 #  ${if_existing /sys/class/power_supply/AC/online 0}
