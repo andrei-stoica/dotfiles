@@ -1,0 +1,17 @@
+[color]
+   ui = auto
+[user]
+   email = andrei.stoica.365@gmail.com
+   name = Andrei Stoica
+
+[alias]
+   a = add
+   s = status
+   c = commit
+   b  = branch
+   co = checkout
+   d = diff
+   dc = diff -cached
+   lol = log --decorate --pretty=oneline --abbrev-commit
+   lg = log --pretty=format:'%C(auto) %h,%C(green) \"%s\"%Creset, %aN,%C(blue) %cD'
+
