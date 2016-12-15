@@ -1,0 +1,240 @@
+// vim:ts=4:sw=4:et
+{
+    // splitv split container with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.695744680851063,
+    "type": "con",
+    "nodes": [
+        {
+            // tabbed split container with 3 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "percent": 1,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 0,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 368,
+                       "width": 579,
+                       "x": 1062,
+                       "y": 429
+                    },
+                    "name": "hoe - Chat",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                       // "class": "^Steam$",
+                       // "instance": "^Steam$",
+                       // "title": "^hoe\\ \\-\\ Chat$",
+                       // "transient_for": "^$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 0,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 24,
+                       "width": 64,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "NoobyDahGreat - Chat",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                       // "class": "^Steam$",
+                       // "instance": "^Steam$",
+                       // "title": "^NoobyDahGreat\\ \\-\\ Chat$",
+                       // "transient_for": "^$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 0,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1028,
+                       "width": 939,
+                       "x": 967,
+                       "y": 38
+                    },
+                    "name": "Steam",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                       // "class": "^Steam$",
+                       // "instance": "^Steam$",
+                       // "title": "^Steam$",
+                       // "transient_for": "^$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+{
+    // splitv split container with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.304255319148937,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "user_off",
+            "geometry": {
+               "height": 24,
+               "width": 64,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Prieteni",
+            "percent": 0.5,
+            "swallows": [
+               {
+               // "class": "^Steam$",
+               // "instance": "^Steam$",
+               // "title": "^Prieteni$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 524,
+               "width": 579,
+               "x": 1046,
+               "y": 541
+            },
+            "name": "lee_maze - Chat",
+            "percent": 0.5,
+            "swallows": [
+               {
+               // "class": "^Steam$",
+               // "instance": "^Steam$",
+               // "title": "^lee_maze\\ \\-\\ Chat$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+// vim:ts=4:sw=4:et
+{
+    // splitv split container with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.695744680851063,
+    "type": "con",
+    "nodes": [
+        {
+            // tabbed split container with 1 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "percent": 1,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 660,
+                       "width": 1890,
+                       "x": 1935,
+                       "y": 420
+                    },
+                    "name": "Steam",
+                    "percent": 1,
+                    "swallows": [
+                       {
+                       // "class": "^Steam$",
+                       // "instance": "^Steam$",
+                       // "title": "^Steam$",
+                       // "transient_for": "^$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+{
+    // splitv split container with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.304255319148937,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "user_off",
+            "geometry": {
+               "height": 24,
+               "width": 64,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Prieteni",
+            "percent": 0.5,
+            "swallows": [
+               {
+               // "title": "^Prieteni$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 24,
+               "width": 64,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Friends",
+            "percent": 0.5,
+            "swallows": [
+               {
+               // "class": "^Steam$",
+               // "instance": "^Steam$",
+               // "title": "^Friends$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

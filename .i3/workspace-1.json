@@ -1,0 +1,87 @@
+// vim:ts=4:sw=4:et
+{
+// splitv split container with 1 children
+"border": "normal",
+"floating": "auto_off",
+"layout": "splitv",
+"percent": 0.337486938854489,
+"type": "con",
+"nodes": [
+{
+// tabbed split container with 2 children
+"border": "normal",
+"floating": "auto_off",
+"layout": "tabbed",
+"percent": 1,
+"type": "con",
+"nodes": [
+{
+"border": "none",
+"current_border_width": 2,
+"floating": "auto_off",
+"geometry": {
+"height": 427,
+"width": 642,
+"x": 0,
+"y": 0
+},
+"name": "/bin/bash",
+"percent": 0.5,
+"swallows": [
+{
+"class": "^Terminator$"
+}
+],
+"type": "con"
+},
+{
+"border": "normal",
+"floating": "user_off",
+"geometry": {
+"height": 427,
+"width": 642,
+"x": 0,
+"y": 0
+},
+"name": "/bin/bash",
+"percent": 0.5,
+"swallows": [
+{
+"class": "^Terminator$"
+}
+],
+"type": "con"
+}
+]
+}
+]
+}
+
+{
+// tabbed split container with 1 children
+"border": "normal",
+"floating": "auto_off",
+"layout": "tabbed",
+"percent": 0.662513061145511,
+"type": "con",
+"nodes": [
+{
+"border": "normal",
+"floating": "auto_off",
+"geometry": {
+"height": 1033,
+"width": 1148,
+"x": 770,
+"y": 45
+},
+"name": "/home/andrei/Documents - Atom",
+"percent": 1,
+"swallows": [
+{
+"window_role": "^browser\\-window$"
+}
+],
+"type": "con"
+}
+]
+}
