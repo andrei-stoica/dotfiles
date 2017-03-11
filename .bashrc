@@ -106,7 +106,17 @@ function tmw {
    tmux split-window -dh "$*";
 }
 
-
+function cmpl () {
+   if [ -z "$1" ]
+   then
+      echo "No Parameter"
+   elif [ "$1" == "pthread" ] && ! [ -z "$2" ]
+   then
+      clang -lpthread -Wall -Wextra -lm -std=c99 $2.c -o $2 && ./$2
+   else
+      clang -Wall -Wextra -lm -std=c99 $1.c -o $1 && ./$1
+   fi
+}
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
