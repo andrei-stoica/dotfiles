@@ -146,9 +146,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock using i3lock
-bindsym Ctrl+Pause exec "i3lock -i '/home/andrei/Pictures/pcmr dye.png' -t -F"
+bindsym Ctrl+Break exec "i3lock -i '/home/andrei/Pictures/pcmr dye.png' -t"
 # suspend with lock
-bindsym Shift+Ctrl+Pause exec ~/.i3/suspend.sh
+bindsym Shift+Ctrl+Break exec ~/.i3/suspend.sh
 # shutdown computer
 bindsym Shift+Ctrl+$mod+mod1+s exec systemctl poweroff
 # restart computer
@@ -230,9 +230,9 @@ bindsym $mod+mod1+Right move workspace to output right
 popup_during_fullscreen smart
 
 # setup display
-exec xrandr --output DP-0 --rotate left
-#exec xrandr --output DVI-I-1 --right-of DP-0
-exec xrandr --output HDMI-0 --pos 1441x801
+exec xrandr --output DP-0 -- primary --rotate left
+exec xrandr --output HDMI-0 --right-of DP-0
+exec xrandr --output HDMI-0 --pos 1441x1000
 
 # set the background 
 exec feh --bg-fill "/home/andrei/Pictures/ArchGate2.png"
