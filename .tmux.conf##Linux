@@ -23,3 +23,7 @@ set-window-option -g mode-keys vi
 
 # status bar
 set -g status-right '♥#(acpi | cut -d ',' -f 2) | %H:%m %d-%b-%y '
+
+# default shell
+set -g default-terminal "screen-256color" /bin/bash
+#set-option -g default-shell /bin/bash
