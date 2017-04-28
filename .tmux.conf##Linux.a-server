@@ -25,5 +25,5 @@ set-window-option -g mode-keys vi
 set -g status-right '%H:%m %d-%b-%y '
 
 # default shell
-set -g default-terminal "screen-256color" /bin/bash
+#set -g default-terminal "screen-256color" /bin/bash
 #set-option -g default-shell /bin/bash
