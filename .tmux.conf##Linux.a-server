@@ -1,0 +1,29 @@
+# remap prefix from 'C-b' to 'C-a'
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# Enable mouse control (clickable windows, panes, resizable panes)
+set -g mouse on
+
+# Initialize sesions
+bind W source-file ~/.tmux/work
+
+# reload config
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
+
+# spliting windoww
+unbind %
+unbind '"'
+bind | split-window -h
+bind - split-window -v
+
+# setting vi mode
+set-window-option -g mode-keys vi
+
+# status bar
+set -g status-right '%H:%m %d-%b-%y '
+
+# default shell
+set -g default-terminal "screen-256color" /bin/bash
+#set-option -g default-shell /bin/bash
