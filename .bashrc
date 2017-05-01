@@ -128,3 +128,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Junit setup
+export JUNIT_HOME=/home/andrei/.junit
+export CLASSPATH=$JUNIT_HOME/junit4.12.jar:$JUNIT_HOME/hamcrest-core-1.3.jar
+
+# editor setup
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
