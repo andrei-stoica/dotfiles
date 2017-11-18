@@ -18,6 +18,9 @@ unbind '"'
 bind | split-window -h
 bind - split-window -v
 
+# sync panes
+bind S setw synchronize-panes
+
 # setting vi mode
 set-window-option -g mode-keys vi
 
@@ -25,5 +28,5 @@ set-window-option -g mode-keys vi
 set -g status-right '♥#(acpi | cut -d ',' -f 2) | %H:%m %d-%b-%y '
 
 # default shell
-set -g default-terminal "screen-256color" /bin/bash
+#set -g default-terminal "screen-256color" /bin/bash
 #set-option -g default-shell /bin/bash
