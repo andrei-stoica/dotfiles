@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -24,18 +24,18 @@ set $mod Mod4
 floating_modifier $mod
 
 # set up gaps
-gaps inner 14
+#gaps inner 14
 
 for_window [class="^.*"] border pixel 1
 
 # start a terminal
-bindsym $mod+Shift+Return exec terminator
+bindsym $mod+Shift+Return exec gnome-terminal
 
 # goto terminal
 bindsym $mod+Return [class="^Terminator$"] focus
 
 # start a browser window
-bindsym $mod+Shift+b exec chromium
+bindsym $mod+Shift+b exec vivaldi
 
 # goto browser
 bindsym $mod+b [window_role="^browser$"] focus
@@ -53,7 +53,7 @@ bindsym $mod+s [class = "^Skype$"] focus
 bindsym $mod+t [class = "^TeamSpeak 3$"] focus
 
 # goto hexchat
-bindsym $mod+c [class = "^Hexchat$"] focus
+bindsym $mod+c [class = "^Slack"] focus
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -105,8 +105,7 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
+# change focus between tiling / floating windows 
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
@@ -146,7 +145,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock using i3lock
-bindsym Ctrl+Break exec "i3lock -i '/home/andrei/Pictures/pcmr dye.png' -t"
+bindsym Ctrl+Shift+l exec "i3lock -c 383A3B"
 # suspend with lock
 bindsym Shift+Ctrl+Break exec ~/.i3/suspend.sh
 # shutdown computer
@@ -192,7 +191,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Volume controls
-set $sink `pactl list short sinks | grep RUNNING | cut -f1`
+set $sink `pactl list short sinks | grep alsa_output.pci-0000_00_1f.3.analog-stereo | cut -f1`
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +1%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -1%
 bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +10%
@@ -204,6 +203,10 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 #scrot focused window
 bindsym Print exec scrot -u -e 'mv $f ~/Dropbox/Pictures/Screenshots/'
@@ -230,18 +233,18 @@ bindsym $mod+mod1+Right move workspace to output right
 popup_during_fullscreen smart
 
 # setup display
-exec xrandr --output DP-0 -- primary --rotate left
-exec xrandr --output HDMI-0 --right-of DP-0
-exec xrandr --output HDMI-0 --pos 1441x1000
+exec xrandr --dpi 220
+#exec xrandr --output DP-0 -- primary --rotate left
+#exec xrandr --output HDMI-0 --right-of DP-0
+#exec xrandr --output HDMI-0 --pos 1441x1000
 
 # set the background 
-exec feh --bg-fill "/home/andrei/Pictures/ArchGate2.png"
+#exec feh --bg-fill "/home/andrei/Pictures/ArchGate2.png"
 
 exec --no-startup-id compton --config ~/.comptonrc
 
 # setup coding workspace
-exec --no-startup-id i3-msg "workspace 1:Coding; exec terminator"
-exec --no-startup-id i3-msg "workspace 1:Coding; exec terminator"
+exec --no-startup-id i3-msg "workspace 1:Coding; exec "
 
 
 # open a web browser

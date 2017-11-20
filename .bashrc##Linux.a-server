@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}[\[\e[01;32m\]\u@\h\[\e[00m\]](\[\e[1;36m\]\D{%b %d} \A\[\033[00m\]):\[\033[01;34m\]\W \$\[\033[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}[\[\e[01;32m\]\u@\[\033[0;31m\]\h\[\e[00m\]](\[\e[1;36m\]\D{%b %d} \A\[\033[00m\]):\[\033[01;34m\]\W \$\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}[\u@\h](\D{%b %d} \A):\W \$ '
 fi
@@ -129,6 +129,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+TERM=xterm-256color
+
 # Junit setup
 export JUNIT_HOME=/home/andrei/.junit
 export CLASSPATH=$JUNIT_HOME/junit4.12.jar:$JUNIT_HOME/hamcrest-core-1.3.jar
@@ -136,4 +138,10 @@ export CLASSPATH=$JUNIT_HOME/junit4.12.jar:$JUNIT_HOME/hamcrest-core-1.3.jar
 # editor setup
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/lib/nvidia-384:/usr/local/cuda/extras/CUPTI/lib64"
+export CUDA_HOME=/usr/local/cuda
 
