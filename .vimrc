@@ -55,12 +55,10 @@ set ruler
 set undolevels=1000
 set backspace=indent,eol,start
 set colorcolumn=80
+
 " lastline plugin config
 set laststatus=2
-"let g:lightline = {'colorshceme': 'solarized dark'}
-" gitgutter
-let g:gitgutter_realtime = 1
-let g:gitgutter_eager = 1
+
 " colorscheme
 syntax enable
 "set background=dark
@@ -70,3 +68,4 @@ highlight colorcolumn ctermbg=grey ctermfg=blue
 highlight OverLength ctermbg=red ctermfg=white
 match OverLength /\%>80v.\+/
 filetype plugin on
+nmap ne :NERDTreeToggle<cr>
