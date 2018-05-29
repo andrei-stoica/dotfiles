@@ -16,9 +16,10 @@ Plugin 'itchyny/lightline.vim'
 
 Plugin 'airblade/vim-gitgutter'
 
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'suan/vim-instant-markdown'
 
-Plugin 'kannokanno/previm'
+Plugin 'kien/rainbow_parentheses.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
