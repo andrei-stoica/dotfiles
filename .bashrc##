@@ -131,17 +131,6 @@ fi
 
 TERM=xterm-256color
 
-# Junit setup
-export JUNIT_HOME=/home/andrei/.junit
-export CLASSPATH=$JUNIT_HOME/junit4.12.jar:$JUNIT_HOME/hamcrest-core-1.3.jar
-
 # editor setup
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/lib/nvidia-384:/usr/local/cuda/extras/CUPTI/lib64"
-export CUDA_HOME=/usr/local/cuda
-
