@@ -12,6 +12,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'digitaltoad/vim-pug'
+
 Plugin 'itchyny/lightline.vim'
 
 Plugin 'airblade/vim-gitgutter'
