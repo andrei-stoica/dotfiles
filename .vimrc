@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype on										" required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,6 +19,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
 
 Plugin 'suan/vim-instant-markdown'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 Plugin 'kien/rainbow_parentheses.vim'
 
@@ -69,3 +70,4 @@ highlight OverLength ctermbg=red ctermfg=white
 match OverLength /\%>80v.\+/
 filetype plugin on
 nmap ne :NERDTreeToggle<cr>
+let g:livepreview_previewer = 'atril'
