@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype on										" required
 
-if empty(glob("~/.vim/bundle/Vundle.vim"))
+if empty(glob("~/.vim/bundle/Vundle.vim")) 
 	execute '!git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 	autocmd VimEnter * silent! PluginInstall
 endif
@@ -75,4 +75,7 @@ highlight OverLength ctermbg=red ctermfg=white
 match OverLength /\%>80v.\+/
 filetype plugin on
 nmap ne :NERDTreeToggle<cr>
-let g:livepreview_previewer = 'atril'
+let pdf_viewer = system('echo ${$(xdg-mime query default application/pdf)\%.desktop}')
+if  pdf_viewer > 0
+	let g:livepreview_previewer = 'atril'
+endif
