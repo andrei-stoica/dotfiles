@@ -28,6 +28,8 @@ call vundle#begin()
 
 	Plugin 'kien/rainbow_parentheses.vim'
 
+	Plugin 'dylanaraps/fff.vim'
+
 	" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -74,7 +76,10 @@ highlight colorcolumn ctermbg=grey ctermfg=blue
 highlight OverLength ctermbg=red ctermfg=white
 match OverLength /\%>80v.\+/
 filetype plugin on
+
+nnoremap f :F<CR>
 nmap ne :NERDTreeToggle<cr>
+
 let pdf_viewer = system('echo ${$(xdg-mime query default application/pdf)\%.desktop}')
 if  pdf_viewer > 0
 	let g:livepreview_previewer = 'atril'
