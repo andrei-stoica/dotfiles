@@ -28,6 +28,7 @@ alias gci='gcloud compute instances'
 alias gcls='gcloud compute instances list'
 alias gcstart='gcloud compute instances start'
 alias gcstop='gcloud compute instances stop'
+alias gcstopall="gcls | grep RUNNING | awk '{print \$1}' | xargs -I{} gcloud compute instances stop {}"
 alias gct='gcloud compute tpus'
 alias gctls='gcloud compute tpus list'
 alias gctstart='gcloud compute tpus start'
