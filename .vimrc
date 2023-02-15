@@ -23,8 +23,8 @@ call vundle#begin()
 
 	Plugin 'airblade/vim-gitgutter'
 
-	Plugin 'suan/vim-instant-markdown'
-	Plugin 'xuhdev/vim-latex-live-preview'
+	"Plugin 'suan/vim-instant-markdown'
+	"Plugin 'xuhdev/vim-latex-live-preview'
 
 	Plugin 'kien/rainbow_parentheses.vim'
 
@@ -44,6 +44,9 @@ filetype plugin on
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+set nobackup
+set nowritebackup
+set noswapfile
 set number
 set linebreak
 set showbreak=+++

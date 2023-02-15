@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/lib64/openjdk-17/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/andrei/.oh-my-zsh
@@ -93,3 +93,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases
+
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^v" edit-command-line
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/andrei/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/andrei/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/andrei/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/andrei/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
