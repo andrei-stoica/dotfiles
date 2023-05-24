@@ -116,3 +116,18 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
+# Open work folder with fuzzy finder
+function work() {
+	work_dirs=( "$HOME/clones" )
+
+	projects=()
+
+	for dr in "${work_dirs[@]}"; do
+		p=$( ls -d -1 ${dr}/* )
+		echo $p
+		projects=( "${projects[@]}" "${p[@]}" )
+	done
+
+	goto=$(echo "$projects" | fzf --preview "tree  -C -L 2 {}")
+	cd "$goto"
+}
