@@ -118,16 +118,15 @@ unset __conda_setup
 
 # Open work folder with fuzzy finder
 function work() {
-	work_dirs=( "$HOME/clones" )
+  work_dirs=( "$HOME/clones" "$HOME/sandbox" )
 
-	projects=()
+  projects=()
 
-	for dr in "${work_dirs[@]}"; do
-		p=$( ls -d -1 ${dr}/* )
-		echo $p
-		projects=( "${projects[@]}" "${p[@]}" )
-	done
+  for dr in "${work_dirs[@]}"; do
+    p=$( ls -d -1 ${dr}/* )
+    projects=( "${projects[@]}" "${p[@]}" )
+  done
 
-	goto=$(echo "$projects" | fzf --preview "tree  -C -L 2 {}")
-	cd "$goto"
+  goto=$(echo "$projects" | fzf --preview "tree  -C -L 2 {}")
+  tmux new -A -s "$(basename -- $goto)" -c "$goto"
 }
