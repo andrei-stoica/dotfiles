@@ -1,0 +1,72 @@
+---
+
+ - name: Setup dev environment
+   hosts: localhost
+   tasks:
+
+     - name: update cache
+       become: true
+       when: ansible_facts['distribution'] == "Ubuntu"
+       ansible.builtin.apt:
+         update_cache: yes
+
+     - name: install pacstall
+       become: yes
+       when: ansible_facts['distribution'] == "Ubuntu" 
+       ansible.builtin.shell:
+         cmd: bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
+         creates: /usr/bin/pacstall
+
+
+     - name: install most tools
+       become: true
+       ansible.builtin.apt:
+         pkg: 
+           - curl
+           - tmux
+           - git
+           - htop
+           - build-essential
+           - fzf
+           - xclip
+           - zsh
+           - yadm
+
+     - name: install tailscale
+       become: yes
+       become_user: andrei  
+       ansible.builtin.shell:
+         cmd: sh -c "$(curl -fsSL https://tailscale.com/install.sh)" 
+         creates: /usr/bin/tailscale
+      
+
+     - name: instll nvchad
+       become: yes
+       become_user: andrei
+       ansible.builtin.command:
+         cmd: "git clone https://github.com/NvChad/NvChad /home/andrei/.config/nvim --depth 1"
+         creates: /home/andrei/.config/nvim 
+
+     - name : install oh-my-zsh
+       become: yes
+       become_user: andrei
+       ansible.builtin.shell:
+         cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+         creates: /home/andrei/.oh-my-zsh
+
+
+     - name : retrieve dotfiles
+       become: yes
+       become_user: andrei
+       ansible.builtin.command:
+         cmd: yadm clone https://github.com/andrei-stoica/dotfiles.git
+         creates: /home/andrei/.local/share/yadm/repo.git
+
+     - name: install nvchad custom config
+       become: yes
+       become_user: andrei
+       ansible.builtin.command:
+         cmd: ln -s /home/andrei/.nvchad-custom /home/andrei/.config/nvim/lua/custom
+         creates: /home/andrei/.config/nvim/lua/custom
+
+
