@@ -58,6 +58,12 @@ local plugins = {
     "theprimeagen/harpoon",
   },
 
+	{
+		'simrat39/rust-tools.nvim'
+	},
+
+	-- Disable nvchad plugins
+
   {
     "tpope/vim-sleuth",
     lazy = false,
