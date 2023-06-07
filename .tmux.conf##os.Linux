@@ -19,7 +19,8 @@ bind | split-window -h
 bind - split-window -v
 
 # sync panes
-bind S setw synchronize-panes
+unbind b
+bind b setw synchronize-panes
 
 # setting vi mode
 set-window-option -g mode-keys vi

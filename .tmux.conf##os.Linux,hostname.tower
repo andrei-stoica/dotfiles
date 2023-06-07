@@ -18,11 +18,9 @@ unbind '"'
 bind | split-window -h
 bind - split-window -v
 
-# broadcast to panes
+# sync panes
 unbind b
-unbind B
-bind b setw synchronize-panes on
-bind B setw synchronize-panes off
+bind b setw synchronize-panes
 
 
 # status bar
