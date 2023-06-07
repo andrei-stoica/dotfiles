@@ -99,21 +99,8 @@ zle -N edit-command-line
 bindkey "^v" edit-command-line
 
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/andrei/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/andrei/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/andrei/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/andrei/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# adding cargo to path
+export PATH=$HOME/.cargo/bin:$PATH
 
 
 # Open work folder with fuzzy finder
@@ -123,10 +110,16 @@ function work() {
   projects=()
 
   for dr in "${work_dirs[@]}"; do
-    p=$( ls -d -1 ${dr}/* )
-    projects=( "${projects[@]}" "${p[@]}" )
+		p=$( ls -d -1 ${dr}/* )
+		projects=( "${projects[@]}" "${p[@]}" )
   done
 
-  goto=$(echo "$projects" | fzf --preview "tree  -C -L 2 {}")
-  tmux new -A -s "$(basename -- $goto)" -c "$goto"
+  goto=$(echo "$projects" | fzf --query=$1 --preview "tree  -C -L 2 {}")
+	if [ -z $TMUX ]
+	then
+		tmux new -A -s "$(basename -- $goto)" -c "$goto"
+	else
+		tmux new -d -s "$(basename -- $goto)" -c "$goto"
+		tmux switch-client -t "$(basename -- $goto)"
+	fi
 }
