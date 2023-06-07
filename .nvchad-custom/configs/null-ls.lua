@@ -20,12 +20,14 @@ local sources = {
 
   b.formatting.black.with({
     extra_args = {"--line-length=82"}
-  })
+  }),
 
   -- b.diagnostics.pylint.with({
   --     diagnostic_config = { underline = false, virtual_text = false, signs = false },
   --     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
   -- }),
+	
+	b.formatting.rustfmt,
 }
 
 
