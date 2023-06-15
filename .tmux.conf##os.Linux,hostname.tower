@@ -22,6 +22,9 @@ bind - split-window -v
 unbind b
 bind b setw synchronize-panes
 
+# reset working dir for session
+unbind h
+bind h attach-session -t . -c "#{pane_current_path}"
 
 # status bar
 set -g status-right '%H:%m %d-%b-%y '
