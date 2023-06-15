@@ -6,15 +6,14 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/lib64/openjdk-17/bin:$PATH
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="blokkzh"
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes ZSH_THEME="blokkzh"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME="blokkzh"
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
-# ZSH_THEME="blokkzh"
+ZSH_THEME="blokkzh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -107,19 +106,16 @@ export PATH=$HOME/.cargo/bin:$PATH
 function work() {
   work_dirs=( "$HOME/clones" "$HOME/sandbox" )
 
-  projects=()
+  goto=$(find $work_dirs -maxdepth 1 -mindepth 1 -type d | fzf --query=$1 --preview "tree  -C -L 2 {}")
+	[ -z $goto ] && return
 
-  for dr in "${work_dirs[@]}"; do
-		p=$( ls -d -1 ${dr}/* )
-		projects=( "${projects[@]}" "${p[@]}" )
-  done
-
-  goto=$(echo "$projects" | fzf --query=$1 --preview "tree  -C -L 2 {}")
 	if [ -z $TMUX ]
-	then
-		tmux new -A -s "$(basename -- $goto)" -c "$goto"
-	else
-		tmux new -d -s "$(basename -- $goto)" -c "$goto"
+  then
+    tmux new -A -s "$(basename -- $goto)" -c "$goto"
+  else
+    tmux new -d -s "$(basename -- $goto)" -c "$goto"
 		tmux switch-client -t "$(basename -- $goto)"
 	fi
+
 }
+
