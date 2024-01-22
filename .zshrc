@@ -107,15 +107,15 @@ function work() {
   work_dirs=( "$HOME/clones" "$HOME/sandbox" )
 
   goto=$(find $work_dirs -maxdepth 1 -mindepth 1 -type d | fzf --query=$1 --preview "tree  -C -L 2 {}")
-	[ -z $goto ] && return
+  [ -z $goto ] && return
 
-	if [ -z $TMUX ]
+  if [ -z $TMUX ]
   then
     tmux new -A -s "$(basename -- $goto)" -c "$goto"
   else
     tmux new -d -s "$(basename -- $goto)" -c "$goto"
 		tmux switch-client -t "$(basename -- $goto)"
-	fi
+  fi
 
 }
 

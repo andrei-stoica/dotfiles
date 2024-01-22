@@ -25,6 +25,10 @@ bind b setw synchronize-panes
 # setting vi mode
 set-window-option -g mode-keys vi
 
+# reset working dir for session
+unbind h
+bind h attach-session -t . -c "#{pane_current_path}"
+
 # status bar
 set -g status-right '♥#(acpi | cut -d ',' -f 2) | %H:%m %d-%b-%y '
 
