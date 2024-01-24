@@ -1,9 +1,15 @@
 local overrides = require "custom.configs.overrides"
 
+
 ---@type NvPluginSpec[]
 local plugins = {
 
   -- Override plugin definition options
+
+  {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp
+  },
 
   {
     "neovim/nvim-lspconfig",
@@ -54,13 +60,24 @@ local plugins = {
     end,
   },
 
+  { "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+  },
+
   {
     "theprimeagen/harpoon",
   },
 
-	{
-		'simrat39/rust-tools.nvim'
-	},
+  {
+	  'simrat39/rust-tools.nvim'
+  },
+
+  {
+	  "ellisonleao/glow.nvim",
+	  config = true,
+	  cmd = "Glow",
+	  event = 'BufEnter *.md',
+  },
 
 	-- Disable nvchad plugins
 
@@ -68,7 +85,6 @@ local plugins = {
     "tpope/vim-sleuth",
     lazy = false,
   },
-
 
   { "NvChad/nvterm", enabled = false },
 
