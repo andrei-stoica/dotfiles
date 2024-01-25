@@ -59,6 +59,7 @@ ZSH_THEME="blokkzh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-fzf-history-search
 )
 
 source $ZSH/oh-my-zsh.sh
