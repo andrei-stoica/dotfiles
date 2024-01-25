@@ -17,6 +17,13 @@ M.general = {
     ["n"] = {"nzz", "find next"},
     ["N"] = {"Nzz", "find prev"},
 
+    -- navigation
+    ["<c-h>"] = {"<cmd> TmuxNavigateLeft<cr>", "window left" },
+    ["<c-j>"] = {"<cmd> TmuxNavigateDown<cr>", "window down" },
+    ["<c-k>"] = {"<cmd> TmuxNavigateUp<cr>", "window up" },
+    ["<c-l>"] = {"<cmd> TmuxNavigateRight<cr>", "window right" },
+    ["<c-\\>"] = {"<cmd> TmuxNavigatePrevious<cr>", "window previous" },
+
   },
 }
 

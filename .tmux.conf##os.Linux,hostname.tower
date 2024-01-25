@@ -1,3 +1,9 @@
+# plugins
+set -g @plugin 'alexghergh/nvim-tmux-navigation'
+
+run '~/.tmux/plugins/tpm/tpm'
+
+
 # remap prefix from 'C-b' to 'C-a'
 unbind C-b
 set-option -g prefix C-a
@@ -28,3 +34,18 @@ bind h attach-session -t . -c "#{pane_current_path}"
 
 # status bar
 set -g status-right '%H:%m %d-%b-%y '
+
+# Start windows and panes at 1, not 0
+set -g base-index 1
+set -g pane-base-index 1
+set-window-option -g pane-base-index 1
+set-option -g renumber-windows on
+
+# navigation
+bind-key  'j' select-pane -D
+bind-key  'k' select-pane -U
+bind-key  'l' select-pane -R
+bind-key  'h' select-pane -L
+
+bind -n S-Left  previous-window
+bind -n S-Right next-window
