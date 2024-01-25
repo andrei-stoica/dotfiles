@@ -1,3 +1,8 @@
+# plugins
+set -g @plugin 'alexghergh/nvim-tmux-navigation'
+
+run '~/.tmux/plugins/tpm/tpm'
+
 # remap prefix from 'C-b' to 'C-a'
 unbind C-b
 set-option -g prefix C-a
@@ -15,15 +20,12 @@ bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
 # spliting windoww
 unbind %
 unbind '"'
-bind | split-window -h
-bind - split-window -v
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
 
 # sync panes
 unbind b
 bind b setw synchronize-panes
-
-# setting vi mode
-set-window-option -g mode-keys vi
 
 # reset working dir for session
 unbind h
@@ -32,6 +34,17 @@ bind h attach-session -t . -c "#{pane_current_path}"
 # status bar
 set -g status-right '♥#(acpi | cut -d ',' -f 2) | %H:%m %d-%b-%y '
 
-# default shell
-#set -g default-terminal "screen-256color" /bin/bash
-#set-option -g default-shell /bin/bash
+# Start windows and panes at 1, not 0
+set -g base-index 1
+set -g pane-base-index 1
+set-window-option -g pane-base-index 1
+set-option -g renumber-windows on
+
+# navigation
+bind-key  'j' select-pane -D
+bind-key  'k' select-pane -U
+bind-key  'l' select-pane -R
+bind-key  'h' select-pane -L
+
+bind -n S-Left  previous-window
+bind -n S-Right next-window
