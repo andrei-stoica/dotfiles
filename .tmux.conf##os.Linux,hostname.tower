@@ -42,10 +42,16 @@ set-window-option -g pane-base-index 1
 set-option -g renumber-windows on
 
 # navigation
-bind-key  'j' select-pane -D
-bind-key  'k' select-pane -U
-bind-key  'l' select-pane -R
-bind-key  'h' select-pane -L
+bind-key -r j select-pane -D
+bind-key -r k select-pane -U
+bind-key -r l select-pane -R
+bind-key -r h select-pane -L
+
+# resize
+bind-key -r -T prefix M-k resize-pane -U
+bind-key -r -T prefix M-j resize-pane -D
+bind-key -r -T prefix M-h resize-pane -L
+bind-key -r -T prefix M-l resize-pane -R
 
 bind -n S-Left  previous-window
 bind -n S-Right next-window
