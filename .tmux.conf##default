@@ -34,7 +34,7 @@ bind h attach-session -t . -c "#{pane_current_path}"
 
 # status bar
 set -g status-right '%H:%m %d-%b-%y '
-if-shell '[[ $(acpi -t) ]]' {
+if-shell 'acpi -t' {
   set -g status-right '♥#(acpi | cut -d ',' -f 2) | %H:%m %d-%b-%y '
 }
 
