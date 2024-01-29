@@ -42,4 +42,6 @@ alias venv2='python2 -m venv'
 alias venv3='python3 -m venv'
 alias dotvenv='source .venv/bin/activate'
 alias todo='rusty-tasks'
-alias ccat='highlight -O ansi --force'
+alias ccat='bat'
+alias we='watchexec'
+
