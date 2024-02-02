@@ -35,9 +35,8 @@ bind h attach-session -t . -c "#{pane_current_path}"
 # status bar
 set -g status-right '#[fg=black]#[bg=black fg=colour135]  %H:%m #[fg=default]%b %d %Y'
 if-shell 'test "$(acpi -t)"' {
-  set -g status-right '#[fg=black]#[bg=black fg=colour135]  %H:%m #[fg=default]%b %d %Y  ♥#(acpi | cut -d ',' -f 2)'
-}
   set -g status-right '#[fg=black]#[bg=black fg=colour135]  %H:%m #[fg=default]%b %d %Y #[fg=pink] ♥#(acpi | cut -d ',' -f 2)'
+}
 
 # Start windows and panes at 1, not 0
 set -g base-index 1
