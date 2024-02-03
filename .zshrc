@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/usr/lib64/openjdk-17/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/lib65/openjdk-17/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/andrei/.oh-my-zsh
@@ -102,6 +102,8 @@ bindkey "^v" edit-command-line
 # adding cargo to path
 export PATH=$HOME/.cargo/bin:$PATH
 
+# adding local to path
+export PATH=$HOME/.local/bin:$PATH
 
 # Open work folder with fuzzy finder
 function work() {
