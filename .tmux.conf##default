@@ -32,9 +32,9 @@ unbind h
 bind h attach-session -t . -c "#{pane_current_path}"
 
 # status bar
-set -g status-right '#[fg=black]◢#[bg=black fg=colour135]  %H:%m #[fg=default]%b %d %Y'
+set -g status-right '#[fg=black]◢#[bg=black fg=colour135]  %H:%M #[fg=default]%b %d %Y'
 if-shell 'test "$(acpi -t)"' {
-  set -g status-right '#[fg=black]◢#[bg=black fg=colour135]  %H:%m #[fg=default]%b %d %Y #[fg=pink] ♥#(acpi | cut -d ',' -f 2)'
+  set -g status-right '#[fg=black]◢#[bg=black fg=colour135]  %H:%M #[fg=default]%b %d %Y #[fg=pink] ♥#(acpi | cut -d ',' -f 2)'
 }
 
 # Start windows and panes at 1, not 0
@@ -81,6 +81,6 @@ set -g window-status-current-format "#[fg=colour135]#W"
 set -g status-style bg=default
 set -g pane-active-border-style fg=colour135
 set -g status-justify centre
-set-option -s status-interval 1
+set-option -g status-interval 1
 set-option -g clock-mode-color colour135
 set-option -g message-style fg=colour135,bg=black
