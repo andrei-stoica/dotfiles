@@ -32,9 +32,9 @@ unbind h
 bind h attach-session -t . -c "#{pane_current_path}"
 
 # status bar
-set -g status-right '#[fg=black]◢#[bg=black fg=colour135]  %H:%M #[fg=default]%b %d %Y'
+set -g status-right '#[fg=black]◢#[bg=black fg=colour135] %H:%M #[fg=default]%b %d %Y '
 if-shell 'test "$(acpi -t)"' {
-  set -g status-right '#[fg=black]◢#[bg=black fg=colour135]  %H:%M #[fg=default]%b %d %Y #[fg=pink] ♥#(acpi | cut -d ',' -f 2)'
+  set -g status-right '#[fg=black]◢#[bg=black fg=colour135]  %H:%M #[fg=default]%b %d %Y #[fg=pink] ♥#(acpi | cut -d ',' -f 2) '
 }
 
 # Start windows and panes at 1, not 0
@@ -75,7 +75,7 @@ set -g default-terminal "screen-256color"
 
 # status and culors
 set -g status-left-length 85
-set -g status-left "#[bg=black]working on#[fg=colour135] #S #[bg=default fg=black]◣"
+set -g status-left "#[bg=black]#[fg=#(pomodoro tmux-color)]#(pomodoro status -f ' %!r') #[fg=default]working on#[fg=colour135] #S#[bg=default fg=black]◣"
 set -g window-status-current-format "#[fg=colour135]#W"
 set -g status-style bg=default
 set -g pane-active-border-style fg=colour135
