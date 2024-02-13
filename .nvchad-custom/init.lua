@@ -28,4 +28,4 @@ vim.opt.tabstop = 2
 vim.opt.undolevels = 1000
 vim.opt.backspace = "indent,eol,start"
 vim.opt.colorcolumn = "80"
-
+vim.opt.conceallevel = 2

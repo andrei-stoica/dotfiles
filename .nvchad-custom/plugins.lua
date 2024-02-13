@@ -8,7 +8,8 @@ local plugins = {
 			context = 20,
 			expand = {
 				"function",
-			}, },
+			},
+		},
 		lazy = false,
 	},
 	{
@@ -97,6 +98,25 @@ local plugins = {
 		event = "BufEnter *.md",
 	},
 
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = true,
+		ft = "markdown",
+		-- ft = {
+		-- 	"BufReadPre ~/Notes/**.md",
+		-- 	"BufNewFile ~/Notes/**.md",
+		-- },
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			workspaces = {
+				{ name = "personal", path = "~/Notes/personal" },
+				{ name = "work",     path = "~/Notes/work" },
+			},
+			new_notes_location = "notes_subdir",
+			daily_notes = { folder = "notes/dailies" },
+		},
+	},
 	-- Disable nvchad plugins
 
 	{

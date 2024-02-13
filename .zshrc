@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:/usr/lib65/openjdk-17/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/andrei/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -73,7 +73,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+if [[ -e /usr/bin/nvim ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='vim'
+fi
 # else
 #   export EDITOR='mvim'
 # fi
@@ -122,6 +126,8 @@ function work() {
 
 }
 
+# Open notes folder in nvim then return
+function notes() {cd $HOME/Notes; nvim; cd -;};
 
 
 # JINA_CLI_BEGIN
@@ -154,8 +160,6 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # JINA_CLI_END
 
 
-
-
-
-
-
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
