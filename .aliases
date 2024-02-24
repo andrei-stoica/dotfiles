@@ -1,3 +1,9 @@
+# Complex aliasses
+## Open notes folder in nvim then return
+function notes() {cd $HOME/Notes; nvim; cd -;};
+function sb() {cd $HOME/second-brain/; git pull; nvim; git add .; git commit; git push; cd -;};
+
+# simple
 alias clj='rlwrap java -cp ~/Clojure/clojure-1.8.0.jar clojure.main'
 alias ll='ls -l'
 alias la='ls -A'
@@ -7,34 +13,13 @@ alias cdclip="cd \$(xclip -o -selection clipboard)"
 alias clipi='xclip -i -selection clipboard'
 alias clipo='xclip -o -selection clipboard'
 alias ssh-agent='ssh-agent -t 1h'
-alias ssh-home='ssh home-server'
-alias tmh='ssh home-server -t "tmux new -A -s sys"'
-alias tm='tmux new -A -s '
-alias tms='tmux new -A -s sys'
-alias hsfs='sshfs andrei@home-server:/utility /hsfs'
-alias	uhsfs='sudo umount /hsfs'
+alias saa='eval $(ssh-agent) && ssh-add'
+alias tm='tmux new -A'
 alias exfs='sudo zpool import external'
 alias	uexfs='sudo zpool export external'
-alias ta-media='rsync -avr /home/andrei/CSCI_4160/ home-server:/home/andrei/backups/school/TA/CSCI_4160_w19;'
-alias ta-web='rsync -avr /home/andrei/CSCI_3230/ home-server:/home/andrei/backups/school/TA/CSCI_3230_w19;'
-alias photo='rsync -avr /home/andrei/Pictures/* home-server:/utility/Photos/XPS_2018_VACATION/ --exclude="*_CR2_embedded.jpg"'
-alias photo-local='rsync -avr ~/Pictures/* /media/andrei/External/Photos --exclude="*_CR2_embedded.jpg"'
 alias socks='ssh -D 8081 -C -q -N home-server'
 alias gmonitor='while [ true ] ; do nvidia-smi; nvidia-settings -q gpucoretemp | grep gpu; sensors| grep CPU; sleep 1; clear; done'
-alias saa='ssh-agent && ssh-add'
-alias gssh='gcloud compute ssh'
-alias gc='gcloud compute'
-alias gci='gcloud compute instances'
-alias gcls='gcloud compute instances list'
-alias gcstart='gcloud compute instances start'
-alias gcstop='gcloud compute instances stop'
-alias gcstopall="gcls | grep RUNNING | awk '{print \$1}' | xargs -I{} gcloud compute instances stop {}"
-alias gct='gcloud compute tpus'
-alias gctls='gcloud compute tpus list'
-alias gctstart='gcloud compute tpus start'
-alias gctstop='gcloud compute tpus stop'
 alias code='code-oss'
-alias tf-docker='docker run --runtime=nvidia -it --rm -p 8888:8888 -v $PWD:/tf/local andrei/dev'
 alias conda-activate='source /opt/anaconda/bin/activate'
 alias conda-deactivete='source /opt/anaconda/bin/deactivate'
 alias venv='python -m venv'
@@ -44,4 +29,3 @@ alias dotvenv='source .venv/bin/activate'
 alias todo='rusty-tasks'
 alias ccat='bat'
 alias we='watchexec'
-

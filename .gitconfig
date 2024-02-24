@@ -16,7 +16,7 @@
    lg = log --pretty=format:'%C(auto) %h,%C(green) \"%s\"%Creset, %aN,%C(blue) %cD'
 
 [core]
-	editor = vim
+	editor = nvim
 	autocrlf = input
 [init]
 	defaultBranch = main

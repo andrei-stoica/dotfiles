@@ -126,10 +126,6 @@ function work() {
 
 }
 
-# Open notes folder in nvim then return
-function notes() {cd $HOME/Notes; nvim; cd -;};
-
-
 # JINA_CLI_BEGIN
 
 ## autocomplete

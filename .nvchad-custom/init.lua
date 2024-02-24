@@ -12,7 +12,6 @@ vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.linebreak = true
 vim.opt.showbreak = "+++"
-vim.opt.textwidth = 100
 vim.opt.showmatch = true
 vim.opt.visualbell = true
 vim.opt.hlsearch = true
