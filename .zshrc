@@ -1,3 +1,6 @@
+zmodload zsh/zprof
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/lib65/openjdk-17/bin:$PATH
 
@@ -109,53 +112,12 @@ export PATH=$HOME/.cargo/bin:$PATH
 # adding local to path
 export PATH=$HOME/.local/bin:$PATH
 
-# Open work folder with fuzzy finder
-function work() {
-  work_dirs=( "$HOME/clones" "$HOME/sandbox" )
-
-  goto=$(find $work_dirs -maxdepth 1 -mindepth 1 -type d | fzf --query=$1 --preview "tree  -C -L 2 {}")
-  [ -z $goto ] && return
-
-  if [ -z $TMUX ]
-  then
-    tmux new -A -s "$(basename -- $goto)" -c "$goto"
-  else
-    tmux new -d -s "$(basename -- $goto)" -c "$goto"
-		tmux switch-client -t "$(basename -- $goto)"
-  fi
-
-}
-
-# JINA_CLI_BEGIN
-
-## autocomplete
-if [[ ! -o interactive ]]; then
-    return
-fi
-
-compctl -K _jina jina
-
-_jina() {
-  local words completions
-  read -cA words
-
-  if [ "${#words}" -eq 2 ]; then
-    completions="$(jina commands)"
-  else
-    completions="$(jina completions ${words[2,-2]})"
-  fi
-
-  reply=(${(ps:
-:)completions})
-}
-
-# session-wise fix
-ulimit -n 4096
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-# JINA_CLI_END
-
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm() {
+    unset -f nvm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvm "$@"
+}
