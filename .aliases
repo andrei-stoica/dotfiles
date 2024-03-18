@@ -1,7 +1,28 @@
 # Complex aliasses
 ## Open notes folder in nvim then return
-function notes() {cd $HOME/Notes; nvim; cd -;};
-function sb() {cd $HOME/second-brain/; git pull; nvim; git add .; git commit; git push; cd -;};
+function notes() { cd $HOME/Notes; nvim; cd -; };
+function sb() { cd $HOME/second-brain/; git pull; nvim; git add .; git commit; git push; cd -; };
+
+## Open work folder with fuzzy finder
+function work() {
+  work_dirs=( "$HOME/clones" "$HOME/sandbox" )
+  goto=""
+  if [ ! -z $1 ]; then
+    goto=$(find $work_dirs -maxdepth 1 -mindepth 1 -type d | fzf -f $1)
+  fi
+
+  if [ -z "$goto" -o $(wc -l <<< "$goto") -ne 1 ]; then
+    goto=$(find $work_dirs -maxdepth 1 -mindepth 1 -type d | fzf --query=$1 --preview "tree  -C -L 2 {}")
+  fi
+
+  [ -z $goto ] && return
+  if [ -z $TMUX ]; then
+    tmux new -A -s "$(basename -- $goto)" -c "$goto"
+  else
+    tmux new -d -s "$(basename -- $goto)" -c "$goto"
+		tmux switch-client -t "$(basename -- $goto)"
+  fi
+}
 
 # simple
 alias clj='rlwrap java -cp ~/Clojure/clojure-1.8.0.jar clojure.main'
