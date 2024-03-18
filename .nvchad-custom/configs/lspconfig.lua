@@ -14,6 +14,7 @@ local servers = {
 	"rust_analyzer",
 	"pyright",
 	"grammarly",
+	"marksman",
 }
 
 for _, lsp in ipairs(servers) do
@@ -29,5 +30,3 @@ lspconfig["clangd"].setup({
 		offsetEncoding = { "utf-16" },
 	},
 })
---
--- lspconfig.pyright.setup { blabla}

@@ -47,6 +47,22 @@ local plugins = {
       require("plugins.configs.lspconfig")
       require("custom.configs.lspconfig")
     end, -- Override to setup mason-lspconfig
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        pyright = {},
+        r_language_server = {},
+        julials = {},
+        marksman = {
+          -- also needs:
+          -- $home/.config/marksman/config.toml :
+          -- [core]
+          -- markdown.file_extensions = ["md", "markdown", "qmd"]
+          filetypes = { "markdown", "quarto" },
+          root_dir = require("lspconfig.util").root_pattern(".git", ".marksman.toml", "_quarto.yml"),
+        },
+      },
+    },
   },
   -- override plugin configs
   {
@@ -113,25 +129,26 @@ local plugins = {
     lazy = false,
   },
 
-	{
-		"epwalsh/obsidian.nvim",
-		version = "*", -- recommended, use latest release instead of latest commit
-		lazy = true,
-		ft = "markdown",
-		-- ft = {
-		-- 	"BufReadPre ~/Notes/**.md",
-		-- 	"BufNewFile ~/Notes/**.md",
-		-- },
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			workspaces = {
-				{ name = "second-brain", path = "~/second-brain" },
-			},
-			new_notes_location = "notes_subdir",
-			daily_notes = { folder = "notes/dailies" },
-		},
-	},
-	-- Disable nvchad plugins
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    -- ft = {
+    -- 	"BufReadPre ~/Notes/**.md",
+    -- 	"BufNewFile ~/Notes/**.md",
+    -- },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      workspaces = {
+        { name = "second-brain", path = "~/second-brain" },
+      },
+      new_notes_location = "notes_subdir",
+      daily_notes = { folder = "notes/dailies" },
+    },
+  },
+
+  -- Disable nvchad plugins
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -142,7 +159,43 @@ local plugins = {
       -- refer to the configuration section below
     },
   },
+  {
+    "quarto-dev/quarto-nvim",
+    opts = {
+      lspFeatures = {
+        languages = { "r", "python", "julia", "bash", "html", "lua" },
+      },
+    },
+    ft = "quarto",
+    keys = {
+      { "<leader>qa",   ":QuartoActivate<cr>",                           desc = "quarto activate" },
+      { "<leader>qp",   ":lua require'quarto'.quartoPreview()<cr>",      desc = "quarto preview" },
+      { "<leader>qq",   ":lua require'quarto'.quartoClosePreview()<cr>", desc = "quarto close" },
+      { "<leader>qh",   ":QuartoHelp ",                                  desc = "quarto help" },
+      { "<leader>qe",   ":lua require'otter'.export()<cr>",              desc = "quarto export" },
+      { "<leader>qE",   ":lua require'otter'.export(true)<cr>",          desc = "quarto export overwrite" },
+      { "<leader>qrr",  ":QuartoSendAbove<cr>",                          desc = "quarto run to cursor" },
+      { "<leader>qra",  ":QuartoSendAll<cr>",                            desc = "quarto run all" },
+      { "<leader><cr>", ":SlimeSend<cr>",                                desc = "send code chunk" },
+      { "<c-cr>",       ":SlimeSend<cr>",                                desc = "send code chunk" },
+      { "<c-cr>",       "<esc>:SlimeSend<cr>i",                          mode = "i",                      desc = "send code chunk" },
+      { "<c-cr>",       "<Plug>SlimeRegionSend<cr>",                     mode = "v",                      desc = "send code chunk" },
+      { "<cr>",         "<Plug>SlimeRegionSend<cr>",                     mode = "v",                      desc = "send code chunk" },
+      { "<leader>ctr",  ":split term://R<cr>",                           desc = "terminal: R" },
+      { "<leader>cti",  ":split term://ipython<cr>",                     desc = "terminal: ipython" },
+      { "<leader>ctp",  ":split term://python<cr>",                      desc = "terminal: python" },
+      { "<leader>ctj",  ":split term://julia<cr>",                       desc = "terminal: julia" },
+    },
+  },
 
+  {
+    "jmbuhr/otter.nvim",
+    opts = {
+      buffers = {
+        set_filetype = true,
+      },
+    },
+  },
   -- Disable nvchad plugins
 
   {

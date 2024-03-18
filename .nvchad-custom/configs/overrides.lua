@@ -2,17 +2,28 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
-    "vim",
-    "lua",
-    "html",
-    "css",
-    "javascript",
     "typescript",
     "python",
     "tsx",
     "c",
+    "javascript",
+    "json",
+    "lua",
+    "luadoc",
+    "luap",
     "markdown",
     "markdown_inline",
+    "query",
+    "regex",
+    "vim",
+    "vimdoc",
+    "bash",
+    "html",
+    "css",
+    "javascript",
+    "yaml",
+    "julia",
+    "r",
   },
   indent = {
     enable = true,
@@ -41,7 +52,6 @@ M.mason = {
 
     "jedi_language_server",
 
-
     "docker_compose_language_service",
     "dockerls",
   },
@@ -63,8 +73,8 @@ M.nvimtree = {
   },
 }
 
-M.cmp = function (_, opts)
-  local cmp = require "cmp"
+M.cmp = function(_, opts)
+  local cmp = require("cmp")
   opts.experimental = {
     ghost_text = true,
   }
@@ -73,20 +83,20 @@ M.cmp = function (_, opts)
     { name = "luasnip" },
     { name = "nvim_lua" },
     { name = "path" },
-    { name = "buffer", keyword_length = 5},
+    { name = "buffer",  keyword_length = 5 },
   })
 
-  opts.mapping = cmp.config.mapping {
+  opts.mapping = cmp.config.mapping({
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
-    ["<C-y>"] = cmp.mapping.confirm {
+    ["<C-y>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
-    },
+    }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -111,10 +121,8 @@ M.cmp = function (_, opts)
       "i",
       "s",
     }),
-  }
+  })
   return opts
 end
 
-
 return M
-
