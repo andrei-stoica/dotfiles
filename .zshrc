@@ -1,6 +1,4 @@
 zmodload zsh/zprof
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/lib65/openjdk-17/bin:$PATH
 
