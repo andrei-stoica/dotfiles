@@ -5,7 +5,11 @@ function sb() { cd $HOME/second-brain/; git pull; nvim; git add .; git commit; g
 
 ## Open work folder with fuzzy finder
 function work() {
-  work_dirs=( "$HOME/clones" "$HOME/sandbox" )
+  work_dirs=( "$HOME/clones" "$HOME/sandbox" "$HOME/TA/" )
+  echo $work_dirs
+  echo "------"
+  work_dirs=( $(find $work_dirs -maxdepth 0 -type d 2> /dev/null) )
+  echo $work_dirs
   goto=""
   if [ ! -z $1 ]; then
     goto=$(find $work_dirs -maxdepth 1 -mindepth 1 -type d | fzf -f $1)
