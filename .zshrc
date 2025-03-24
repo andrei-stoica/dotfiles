@@ -62,7 +62,6 @@ ZSH_THEME="blokkzh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-fzf-history-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -105,6 +104,7 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^v" edit-command-line
 
+bindkey -s "^w" "work^M"
 
 # adding cargo to path
 export PATH=$HOME/.cargo/bin:$PATH
@@ -121,3 +121,6 @@ nvm() {
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
     nvm "$@"
 }
+
+# new fzf command integration
+source <(fzf --zsh)
