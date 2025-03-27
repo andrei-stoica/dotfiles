@@ -13,7 +13,7 @@
    d = diff
    dc = diff -cached
    lol = log --decorate --pretty=oneline --abbrev-commit
-   lg = log --pretty=format:'%C(auto) %h,%C(green) \"%s\"%Creset, %aN,%C(blue) %cD'
+   lg = "log --pretty=format:'%C(auto) %h,%C(green) \"%s\"%Creset, %aN,%C(blue) %cD'"
 
 [core]
 	editor = nvim

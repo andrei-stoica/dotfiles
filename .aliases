@@ -21,7 +21,7 @@ function work() {
     tmux new -A -s "$(basename -- $goto)" -c "$goto"
   else
     tmux new -d -s "$(basename -- $goto)" -c "$goto"
-		tmux switch-client -t "$(basename -- $goto)"
+    tmux switch-client -t "$(basename -- $goto | tr . _)"
   fi
 }
 
@@ -51,3 +51,4 @@ alias dotvenv='source .venv/bin/activate'
 alias todo='rusty-tasks'
 alias ccat='bat'
 alias we='watchexec'
+alias netcheck='ping 8.8.8.8'
